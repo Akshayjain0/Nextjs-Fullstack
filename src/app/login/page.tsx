@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import axios from 'axios'
+import Link from "next/link";
+import { sendEmail } from "@/helpers/mailer";
 
 export default function Login() {
   const router = useRouter();
@@ -27,6 +29,7 @@ export default function Login() {
       setLoading(false)
     }
   };
+
 
   useEffect(()=>{
     if(user.email.length > 0 && user.password.length > 0 ){
@@ -61,6 +64,8 @@ export default function Login() {
       <button className='border border-gray-500 rounded-lg py-2 px-4 mt-3 focus:outline-none focus:border-gray-500' onClick={onLogin}>
         {buttonDisable?"Not Login": "Login"}
       </button>
+
+      <Link href='/forgotpassword' className="text-red-500 underline pt-2 text-sm">Forgot Password</Link>
     </div>
   );
 }
