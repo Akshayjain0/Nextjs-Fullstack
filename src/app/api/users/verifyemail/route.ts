@@ -17,7 +17,7 @@ export async function POST(request: NextRequest) {
                 success: false
             })
         }
-        console.log(`This is the user ID ----------->> ${user._id}`)
+        // console.log(`This is the user ID ----------->> ${user._id}`)
         user.isVerified = true;
         user.verifyToken = undefined;
         user.verifyTokenExpiry = undefined;
@@ -31,3 +31,6 @@ export async function POST(request: NextRequest) {
         return NextResponse.json({ error: error.message })
     }
 }
+
+// 2023-11-28T09:35:26.711+00:00
+// 2023-11-28T09:52:25.420+00:00
